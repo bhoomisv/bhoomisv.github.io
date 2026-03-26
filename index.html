@@ -148,6 +148,98 @@
                 border-color: var(--accent);
             }
 
+
+        /* PROJECT FLIP CARDS */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: transparent;
+            height: 300px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .project-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        /* This class is toggled by JavaScript */
+        .project-card.is-flipped .project-inner {
+            transform: rotateY(180deg);
+        }
+
+        .project-front, .project-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .project-front {
+            background: var(--secondary-bg);
+            border: 1px solid rgba(108, 99, 255, 0.2);
+        }
+
+            .project-front h3 {
+                font-size: 1.5rem;
+                color: var(--accent);
+            }
+
+            .project-front p {
+                font-size: 0.8rem;
+                color: var(--text-dim);
+                margin-top: 10px;
+            }
+
+        .project-back {
+            background-size: cover;
+            background-position: center;
+            color: white;
+            transform: rotateY(180deg);
+            position: relative;
+            overflow: hidden;
+        }
+
+            /* Dark overlay for back of card to make text readable */
+            .project-back::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: rgba(15, 14, 36, 0.85);
+                z-index: 1;
+            }
+
+        .project-back-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-back h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .project-back p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
         /* EDUCATION TIMELINE */
         .edu-item {
             border-left: 2px solid var(--accent);
@@ -307,7 +399,7 @@
 <body>
 
     <nav>
-        <div class="logo">BHOOMIKA<span>.SV</span></div>
+        <div class="logo">BHOOMIKA<span>S V</span></div>
         <div class="links">
             <a href="#home">Home</a>
             <a href="#about">About</a>
@@ -334,8 +426,9 @@
     <section id="about" class="section" data-aos="fade-right">
         <h2 class="section-title">About Me</h2>
         <div class="card">
-            <p>Expert Data Engineer with 5 years of experience in architecting scalable data solutions. My passion lies in solving complex data challenges using Python, Scala, and Google Cloud Platform.</p>
+            <p>Expert Data Engineer with 5 years of experience in architecting scalable data solutions. My passion lies in solving complex data challenges using Python, Spark, Scala, and Google Cloud Platform.</p>
             <p>I specialize in Cloud Migrations, Real-time Streaming, and optimizing Spark performance for multi-terabyte datasets.</p>
+            <p>AI-Driven Code Transformation, Custom Data Validation Framework & Collaborative & Curious</p>
         </div>
     </section>
 
@@ -366,68 +459,155 @@
             <h3>Software Engineer @ EPAM Systems</h3>
             <p style="color: var(--accent);">June 2025 — Present | Bangalore</p>
             <ul>
-                <li>Engineered data migration pipelines moving Hive workloads to BigQuery.</li>
-                <li>Optimized PySpark DAGs in Airflow to improve system uptime.</li>
-                <li>Reduced processing costs by 30% through efficient partition strategies.</li>
+                <li>Migrated data to cloud storage using Amazon S3 and Redshift, ensuring efficient and secure data handling.</li>
+                <li>Performed data transformation and processing tasks using Amazon Redshift to support analytics and reporting needs.</li>
+                <li>Designed, developed, and monitored Apache Airflow DAGs to orchestrate reliable and scalable data workflows.</li>
+                <li>Managed and maintained Amazon S3 buckets to ensure data integrity and accessibility.</li>
+                <li>Identified and resolved bugs, enhancing overall system stability and performance.</li>
+                <li>Designed and optimized data models and schemas to improve query efficiency and support downstream analytics.</li>
             </ul>
         </div>
         <div class="card">
             <h3>Associate Consultant @ KPMG India</h3>
             <p style="color: var(--accent);">March 2025 — June 2025 | Bangalore</p>
             <ul>
-                <li>Engineered data migration pipelines moving Hive workloads to BigQuery.</li>
-                <li>Optimized PySpark DAGs in Airflow to improve system uptime.</li>
-                <li>Reduced processing costs by 30% through efficient partition strategies.</li>
+                <li>Leverage Python's optimized built-in types like collections instead of custom implementations.</li>
+                <li>Analyze time and space complexity of the code using Big-O notation.</li>
+                <li>Suggest better algorithms and identify repeated calculations.</li>
             </ul>
         </div>
         <div class="card">
             <h3>Software Engineer @ Prodapt Solution</h3>
             <p style="color: var(--accent);">April 2023 — March 2025 | Bangalore</p>
             <ul>
-                <li>Engineered data migration pipelines moving Hive workloads to BigQuery.</li>
-                <li>Optimized PySpark DAGs in Airflow to improve system uptime.</li>
-                <li>Reduced processing costs by 30% through efficient partition strategies.</li>
+                <li>Led and worked the migration of legacy data pipelines from the Hadoop ecosystem (Hive, Spark, Scala) to BigQuery SQL, leveraging GCS, Dataproc VMs, and Generative AI tools for code transformation.</li>
+                <li>Developed BigQuery SQL code by translating logic from HQL, Python, and PySpark, ensuring accuracy and performance optimization.</li>
+                <li>Co-developed a custom validation tool for:</li>
+                <li>        Schema comparison</li>
+                <li>        Row count matching</li>
+                <li>        Aggregation validation</li>
+                <li>        Automated data quality checks between Hadoop and BQ</li>
+                <li>Utilized HDFS checksums and validation techniques to ensure end-to-end data integrity during and after migration.</li>
+                <li>Performed root cause analysis on data mismatches, improving accuracy and robustness of converted pipelines.</li>
+                <li>Researched and evaluated new technologies in cloud data engineering, helping drive innovation and continuous improvement.</li>
+                <li>Conducted end-to-end testing to ensure the scalability, reliability, and performance.</li>
             </ul>
         </div>
         <div class="card">
             <h3>Associate Software Engineer @ Prodapt Solution</h3>
             <p style="color: var(--accent);">Dec 2021 — April 2023 | Bangalore</p>
             <ul>
-                <li>Engineered data migration pipelines moving Hive workloads to BigQuery.</li>
-                <li>Optimized PySpark DAGs in Airflow to improve system uptime.</li>
-                <li>Reduced processing costs by 30% through efficient partition strategies.</li>
+                <li>Conducted data analysis and exploration to identify patterns, anomalies, and key business metrics within the telecommunications domain.</li>
+                <li>Worked in data preprocessing and visualization to support model selection and metric evaluation.</li>
+                <li>Identified data quality issues and contributed to documenting data definitions and requirements.</li>
+                <li>Designed and maintained ETL pipelines using Python and PySpark to ingest, transform, and load data from various sources.</li>
+                <li>Performed data cleansing, enrichment, and integration to ensure consistency and usability for analytics and machine learning workflows.</li>
+                <li>Automated data workflows to reduce manual intervention and improve pipeline reliability and efficiency.</li>
+                <li>Implemented time-series forecasting models using Facebook Prophet to address datasets with seasonality and trend components.</li>
+                <li>Developed unit tests, validated new features, and ensured results aligned with business expectations.</li>
             </ul>
         </div>
         <div class="card">
             <h3>Intern @ Prodapt Solution</h3>
             <p style="color: var(--accent);">July 2021 — Dec 2021 | Bangalore</p>
             <ul>
-                <li>Engineered data migration pipelines moving Hive workloads to BigQuery.</li>
-                <li>Optimized PySpark DAGs in Airflow to improve system uptime.</li>
-                <li>Reduced processing costs by 30% through efficient partition strategies.</li>
+                <li>Explored and analyzed the Iris dataset using various machine learning techniques and visualization methods.</li>
+                <li>Documented pseudocode and analysis in Confluence, ensuring clear understanding and repeatability of code.</li>
+                <li>Preprocessed data (handled missing values, normalized features) and visualized data distributions using Seaborn and Matplotlib.</li>
+                <li>Built and evaluated ML models (e.g., logistic regression, decision tree) to classify species, achieving insights into model accuracy and performance.</li>
+                <li>Created visualizations (pair plots, heatmaps, and box plots) to showcase relationships and correlations within the dataset.</li>
+                <li>Collaborated with teams to improve code and models by experimenting with different machine learning algorithms and data preprocessing techniques.</li>
+                <li>Utilized JupyterLab to run code interactively, iterating on the analysis and improving the model based on feedback.</li>
+                <li>Developed clear documentation in Confluence, including model selection, preprocessing decisions, and potential improvements for future iterations.</li>
             </ul>
         </div>
     </section>
 
+
     <section id="projects" class="section" data-aos="fade-up">
         <h2 class="section-title">Projects</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>ETL Forecasting Model</h3>
-                <p>Built a pipeline to train historical data and predict future trends. Focused on automated data cleaning and predictive modeling.</p>
+        <div class="project-grid">
+
+            <div class="project-card" onclick="this.classList.toggle('is-flipped')">
+                <div class="project-inner">
+                    <div class="project-front">
+                        <h3>ETL Forecasting Model</h3>
+                        <p>Click to see details</p>
+                    </div>
+                    <div class="project-back" style="background-image: url('project1_bg.jpg');">
+                        <div class="project-back-content">
+                            <h3>ETL & Forecasting</h3>
+                            <p>To proactively monitor and detect anomalies or potential service issues in a telecommunications network by leveraging predictive analytics. By forecasting key metrics and identifying deviations from expected behavior, the alerting engine enhances operational efficiency and minimizes service disruption.</p>
+                            <p>Business goals:</p>
+                            <p>     Reducing Downtime, Improving Customer Experience, Enhancing Operational Intelligence and automation of monitoring</p>
+                            <p>Project workflow:</p>
+                            <p>     Historical telecom data is ingested and processed.</p>
+                            <p>     FBProphet is used to forecast future metrics and detect anomalies.</p>
+                            <p>     Anomalies are pushed to Kafka topics.</p>
+                            <p>     Kafka consumers send data to Elasticsearch for storage and indexing.</p>
+                            <p>     Grafana dashboards visualize real-time and historical trends, with alert notifications displayed on the dashboard.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="card">
-                <h3>Hadoop to GCP Migration</h3>
-                <p>Refactored on-premise Hadoop/Hive code for Google Cloud Platform, utilizing Dataproc and BigQuery for modern data warehousing.</p>
+
+            <div class="project-card" onclick="this.classList.toggle('is-flipped')">
+                <div class="project-inner">
+                    <div class="project-front">
+                        <h3>Hadoop to GCP Migration</h3>
+                        <p>Click to see details</p>
+                    </div>
+                    <div class="project-back" style="background-image: url('project2_bg.jpg');">
+                        <div class="project-back-content">
+                            <h3>Cloud Migration</h3>
+                            <p>To modernize the data infrastructure by migrating code and data pipelines from the Hadoop ecosystem (HiveSQL, SparkSQL, ScalaSpark) to Google BigQuery (BQSQL). This transformation enables faster, more scalable, and cost-effective data processing, aligned with the company's cloud-first strategy.</p>
+                            <p>Business goals:</p>
+                            <p>     Cloud Modernization, Operational Efficiency, Data Accuracy and Governance, Al-Driven Acceleration.</p>
+                            <p>Workflow:</p>
+                            <p>     Client transfers source data from Hadoop (HDFS) to BQ table.</p>
+                            <p>     Using the Generative Al tool to convert HiveSQL/SparkSQL/Scala code to optimized BigQuery SQL (BQSQL).</p>
+                            <p>     Converted BQSQL code is deployed to Dev or Production (DALM machine) environments for execution.</p>
+                            <p>     Use the custom validation tool to compare Hadoop vs. BigQuery outputs (row counts, schema, numeric aggregations).</p>
+                            <p>     Display validation results through Looker dashboards for review by QA or business teams.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="card">
-                <h3>Oracle to AWS Migration</h3>
-                <p>Migrated legacy Oracle databases to AWS S3 and Redshift, ensuring complete data integrity and performance tuning.</p>
+
+            <div class="project-card" onclick="this.classList.toggle('is-flipped')">
+                <div class="project-inner">
+                    <div class="project-front">
+                        <h3>Oracle to AWS Migration</h3>
+                        <p>Click to see details</p>
+                    </div>
+                    <div class="project-back" style="background-image: url('project3_bg.jpg');">
+                        <div class="project-back-content">
+                            <h3>Infrastructure Sync</h3>
+                            <p>EPAM will provide services to S&P Market KY3P department in support of the following objectives</p>
+                            <p> 1) Participate in the full cycle of designing, developing, and deploying new KY3P solution including cloud-based access to S&P multi-domain risk data</p>
+                            <p> 2) Contribute to the creation, design, and development of robust enterprise web products, and</p>
+                            <p> 3) Participate in the development, research, and create advanced machine learning systems, models, and algorithms.</p>
+                            <p>Migrated legacy Oracle databases to AWS S3 and Redshift, ensuring complete data integrity and performance tuning.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="card">
-                <h3>Scala Transformation Logic</h3>
-                <p>Developed complex data transformations using Scala with integrated Unit Test cases for high-reliability processing.</p>
+
+            <div class="project-card" onclick="this.classList.toggle('is-flipped')">
+                <div class="project-inner">
+                    <div class="project-front">
+                        <h3>Scala Transformation Logic</h3>
+                        <p>Click to see details</p>
+                    </div>
+                    <div class="project-back" style="background-image: url('project4_bg.jpg');">
+                        <div class="project-back-content">
+                            <h3>Logic & Testing</h3>
+                            <p>Developed complex data transformations using Scala with integrated Unit Test cases for high-reliability processing.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
     </section>
 
@@ -485,31 +665,31 @@
             <div class="award-item">
                 <a href="award4.pdf" target="_blank">
                     <img src="award4.jpg" alt="Award 4">
-                    <div class="award-overlay">View Certificate</div>
+                    <div class="award-overlay">View PDF</div>
                 </a>
             </div>
             <div class="award-item">
                 <a href="award5.pdf" target="_blank">
                     <img src="award5.jpg" alt="Award 5">
-                    <div class="award-overlay">View Certificate</div>
+                    <div class="award-overlay">View PDF</div>
                 </a>
             </div>
             <div class="award-item">
                 <a href="award6.pdf" target="_blank">
                     <img src="award6.jpg" alt="Award 6">
-                    <div class="award-overlay">View Certificate</div>
+                    <div class="award-overlay">View PDF</div>
                 </a>
             </div>
             <div class="award-item">
                 <a href="award7.pdf" target="_blank">
                     <img src="award7.jpg" alt="Award 7">
-                    <div class="award-overlay">View Certificate</div>
+                    <div class="award-overlay">View PDF</div>
                 </a>
             </div>
             <div class="award-item">
                 <a href="award8.pdf" target="_blank">
                     <img src="award8.jpg" alt="Award 8">
-                    <div class="award-overlay">View Certificate</div>
+                    <div class="award-overlay">View PDF</div>
                 </a>
             </div>
         </div>
@@ -529,7 +709,7 @@
         AOS.init({ duration: 1000, once: true });
 
         // Typing Animation
-        const words = ["Data Engineer", "GCP Specialist", "PySpark Developer"];
+        const words = ["Data Engineer", "Google Cloud Developer", "PySpark Developer", "Tech Enthusiast", "Python Developer"];
         let i = 0, j = 0, currentWord = "", isDeleting = false;
 
         function type() {
