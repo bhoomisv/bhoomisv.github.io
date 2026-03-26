@@ -58,9 +58,9 @@
             text-decoration: none;
             font-weight: 500;
             margin-left: 25px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: 0.3s;
-            text-transform: capitalize;
+            text-transform: uppercase;
         }
 
             nav .links a:hover {
@@ -86,8 +86,9 @@
             }
 
         .hero-text h2 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             min-height: 50px;
+            color: var(--text-dim);
         }
 
         .hero-img img {
@@ -110,9 +111,9 @@
             }
         }
 
-        /* COMMON SECTION STYLING */
+        /* SECTION STYLING */
         .section {
-            padding: 100px 10% 60px;
+            padding: 80px 10%;
         }
 
         .section-title {
@@ -132,7 +133,6 @@
                 background: var(--accent);
             }
 
-        /* EXPERIENCE & ABOUT */
         .card {
             background: var(--secondary-bg);
             padding: 30px;
@@ -148,6 +148,40 @@
                 border-color: var(--accent);
             }
 
+        /* EDUCATION TIMELINE */
+        .edu-item {
+            border-left: 2px solid var(--accent);
+            padding-left: 25px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+            .edu-item::before {
+                content: '';
+                position: absolute;
+                left: -9px;
+                top: 0;
+                width: 16px;
+                height: 16px;
+                background: var(--accent);
+                border-radius: 50%;
+            }
+
+            .edu-item h3 {
+                margin: 0;
+                font-size: 1.3rem;
+            }
+
+            .edu-item p {
+                margin: 5px 0;
+                color: var(--text-dim);
+            }
+
+        .edu-mark {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
         /* CERTIFICATION GRID */
         .grid {
             display: grid;
@@ -160,12 +194,12 @@
             padding: 30px;
             border-radius: 20px;
             text-align: center;
-            transition: 0.3s;
             border-bottom: 4px solid transparent;
+            transition: 0.3s;
         }
 
             .cert-card:hover {
-                border-bottom: 4px solid var(--accent);
+                border-bottom-color: var(--accent);
                 background: #23224b;
             }
 
@@ -180,7 +214,6 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: 20px;
-            margin-top: 20px;
         }
 
         .award-item {
@@ -188,7 +221,6 @@
             border-radius: 15px;
             overflow: hidden;
             aspect-ratio: 4/3;
-            cursor: pointer;
         }
 
             .award-item img {
@@ -196,10 +228,6 @@
                 height: 100%;
                 object-fit: cover;
                 transition: 0.5s;
-            }
-
-            .award-item:hover img {
-                transform: scale(1.1);
             }
 
         .award-overlay {
@@ -211,12 +239,15 @@
             justify-content: center;
             opacity: 0;
             transition: 0.3s;
-            color: white;
             font-weight: 600;
         }
 
         .award-item:hover .award-overlay {
             opacity: 1;
+        }
+
+        .award-item:hover img {
+            transform: scale(1.1);
         }
 
         /* BUTTONS */
@@ -229,47 +260,37 @@
             display: inline-block;
             font-weight: 600;
             transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+            border: none;
+            cursor: pointer;
         }
 
             .btn:hover {
-                opacity: 0.9;
-                transform: scale(1.05);
+                transform: translateY(-3px);
+                box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4);
             }
 
-        /* FOOTER SOCIALS */
         .footer {
             text-align: center;
-            padding: 60px 0;
+            padding: 60px;
             background: #0a091d;
         }
 
-        .social-icons {
-            margin-bottom: 20px;
+        .social-icons a {
+            font-size: 26px;
+            margin: 0 15px;
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: 0.3s;
         }
 
-            .social-icons a {
-                font-size: 24px;
-                margin: 0 15px;
-                color: var(--text-dim);
-                text-decoration: none;
-                transition: 0.3s;
+            .social-icons a:hover {
+                color: var(--accent);
             }
 
-                .social-icons a:hover {
-                    color: var(--accent);
-                }
-
-        /* RESPONSIVE */
         @media (max-width: 768px) {
             .hero {
                 flex-direction: column;
                 text-align: center;
-                padding-top: 50px;
-            }
-
-            .hero-text h1 {
-                font-size: 2.5rem;
             }
 
             .hero-img {
@@ -280,7 +301,6 @@
             nav .links {
                 display: none;
             }
-            /* Could add a mobile menu later */
         }
     </style>
 </head>
@@ -291,6 +311,7 @@
         <div class="links">
             <a href="#home">Home</a>
             <a href="#about">About</a>
+            <a href="#education">Education</a>
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
             <a href="#certification">Certification</a>
@@ -314,10 +335,31 @@
         <h2 class="section-title">About Me</h2>
         <div class="card">
             <p>Expert Data Engineer with 5 years of experience in architecting scalable data solutions. My passion lies in solving complex data challenges using Python, Scala, and Google Cloud Platform.</p>
-            <p>I specialize in Cloud Migrations (Hadoop to GCP), Real-time Streaming, and optimizing Spark performance for multi-terabyte datasets.</p>
+            <p>I specialize in Cloud Migrations, Real-time Streaming, and optimizing Spark performance for multi-terabyte datasets.</p>
         </div>
     </section>
-    
+
+    <section id="education" class="section" data-aos="fade-up">
+        <h2 class="section-title">Education</h2>
+        <div class="card">
+            <div class="edu-item">
+                <h3>Bachelor of Engineering (UG)</h3>
+                <p>Kalpataru Institute of Technology, Tiptur, Tumkur, KA | 2017 — 2021</p>
+                <p class="edu-mark">CGPA: 8.70/10</p>
+            </div>
+            <div class="edu-item">
+                <h3>Higher Secondary Certificate (HSC)</h3>
+                <p>Kalpataru PU College, Tiptur, Tumkur, KA | 2015 — 2017</p>
+                <p class="edu-mark">Percentage: 81%</p>
+            </div>
+            <div class="edu-item">
+                <h3>10th Grade (SSLC)</h3>
+                <p>N.S.M Girls High School, Tiptur, Tumkur, KA | Completed 2015</p>
+                <p class="edu-mark">Percentage: 86%</p>
+            </div>
+        </div>
+    </section>
+
     <section id="experience" class="section" data-aos="fade-left">
         <h2 class="section-title">Experience</h2>
         <div class="card">
@@ -367,26 +409,48 @@
         </div>
     </section>
 
+    <section id="projects" class="section" data-aos="fade-up">
+        <h2 class="section-title">Projects</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>ETL Forecasting Model</h3>
+                <p>Built a pipeline to train historical data and predict future trends. Focused on automated data cleaning and predictive modeling.</p>
+            </div>
+            <div class="card">
+                <h3>Hadoop to GCP Migration</h3>
+                <p>Refactored on-premise Hadoop/Hive code for Google Cloud Platform, utilizing Dataproc and BigQuery for modern data warehousing.</p>
+            </div>
+            <div class="card">
+                <h3>Oracle to AWS Migration</h3>
+                <p>Migrated legacy Oracle databases to AWS S3 and Redshift, ensuring complete data integrity and performance tuning.</p>
+            </div>
+            <div class="card">
+                <h3>Scala Transformation Logic</h3>
+                <p>Developed complex data transformations using Scala with integrated Unit Test cases for high-reliability processing.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="certification" class="section" data-aos="fade-up">
         <h2 class="section-title">Certifications</h2>
-        <div class="cert-card">
-            <span class="icon">🚀</span>
-            <h3>GCP Associate</h3>
-            <p>Cloud Engineer</p>
-            <a href="https://www.credly.com/users/bhoomika-s-v/badges" class="btn" style="padding: 5px 15px; font-size: 0.8rem; margin-top: 10px;">Verify</a>
-        </div>
         <div class="grid">
+            <div class="cert-card">
+                <span class="icon">☁️</span>
+                <h3>GCP Associate</h3>
+                <p>Cloud Engineer</p>
+                <a href="https://www.credly.com/users/bhoomika-s-v/badges" class="btn" style="padding: 5px 15px; font-size: 0.8rem; margin-top: 10px;">Verify</a>
+            </div>
             <div class="cert-card">
                 <span class="icon">☁️</span>
                 <h3>GCP Professional</h3>
                 <p>Google Cloud Data Engineer</p>
-                <a href="https://www.credly.com/users/bhoomika-s-v/badges" class="btn" style="padding: 5px 15px; font-size: 0.8rem; margin-top: 10px;">Verify</a>
+                <a href="https://www.credly.com/users/bhoomika-s-v/badges" class="btn" style="padding: 5px 15px; font-size: 0.8rem;">Verify</a>
             </div>
             <div class="cert-card">
                 <span class="icon">📊</span>
                 <h3>Databricks Associate</h3>
                 <p>Apache Spark 3.0</p>
-                <a href="https://credentials.databricks.com/d1557604-25f4-4ff4-8d7e-a8073bf01dd8#acc.4UY8xf5w" class="btn" style="padding: 5px 15px; font-size: 0.8rem; margin-top: 10px;">Verify</a>
+                <a href="https://credentials.databricks.com/edd6306e-9ccc-429f-ba19-f4e63d8d7aa7" class="btn" style="padding: 5px 15px; font-size: 0.8rem;">Verify</a>
             </div>
             <div class="cert-card">
                 <span class="icon">🚀</span>
@@ -398,24 +462,24 @@
     </section>
 
     <section id="awards" class="section" data-aos="zoom-in">
-        <h2 class="section-title">Awards & Achievements</h2>
+        <h2 class="section-title">Awards</h2>
         <div class="award-gallery">
             <div class="award-item">
                 <a href="award1.pdf" target="_blank">
                     <img src="award1.jpg" alt="Award 1">
-                    <div class="award-overlay">View Certificate</div>
+                    <div class="award-overlay">View PDF</div>
                 </a>
             </div>
             <div class="award-item">
                 <a href="award2.pdf" target="_blank">
                     <img src="award2.jpg" alt="Award 2">
-                    <div class="award-overlay">View Certificate</div>
+                    <div class="award-overlay">View PDF</div>
                 </a>
             </div>
             <div class="award-item">
                 <a href="award3.pdf" target="_blank">
                     <img src="award3.jpg" alt="Award 3">
-                    <div class="award-overlay">View Certificate</div>
+                    <div class="award-overlay">View PDF</div>
                 </a>
             </div>
             <div class="award-item">
@@ -457,29 +521,23 @@
             <a href="https://github.com/bhoomisv">💻</a>
             <a href="mailto:bhoomisv96@gmail.com">📧</a>
         </div>
-        <p style="color: var(--text-dim); font-size: 0.8rem;">&copy; 2026 Bhoomika S V. Built with Passion.</p>
+        <p style="color: var(--text-dim); font-size: 0.8rem;">&copy; 2026 Bhoomika S V. All Rights Reserved.</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
 
-        // Typing Effect Logic
-        const words = ["Data Engineer", "GCP Specialist", "PySpark Developer", "Problem Solver"];
+        // Typing Animation
+        const words = ["Data Engineer", "GCP Specialist", "PySpark Developer"];
         let i = 0, j = 0, currentWord = "", isDeleting = false;
 
         function type() {
             const fullWord = words[i];
-            if (isDeleting) {
-                currentWord = fullWord.substring(0, j--);
-            } else {
-                currentWord = fullWord.substring(0, j++);
-            }
-
+            currentWord = isDeleting ? fullWord.substring(0, j--) : fullWord.substring(0, j++);
             document.getElementById("typing").innerHTML = currentWord + '<span style="color:var(--accent);">|</span>';
 
             let typeSpeed = isDeleting ? 50 : 150;
-
             if (!isDeleting && j === fullWord.length + 1) {
                 typeSpeed = 2000;
                 isDeleting = true;
@@ -488,11 +546,9 @@
                 i = (i + 1) % words.length;
                 typeSpeed = 500;
             }
-
             setTimeout(type, typeSpeed);
         }
         type();
     </script>
-
 </body>
 </html>
