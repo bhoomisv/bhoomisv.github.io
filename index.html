@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhoomika | Data Engineer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #0f172a;
+  --text: #fff;
+  --card: #1e293b;
+}
+
+.light-mode {
+  --bg: #ffffff;
+  --text: #000;
+  --card: #f1f5f9;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* NAV */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background: var(--card);
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+  flex-wrap: wrap;
+}
+
+.hero img {
+  width: 250px;
+  border-radius: 20px;
+}
+
+/* BUTTON */
+.btn {
+  background: #3b82f6;
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background: #2563eb;
+}
+
+/* SOCIAL */
+.social {
+  position: fixed;
+  left: 10px;
+  top: 40%;
+}
+
+.social a {
+  display: block;
+  margin: 10px 0;
+  font-size: 22px;
+  text-decoration: none;
+}
+/* AWARDS */
+.award-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-top: 20px;
+  scrollbar-width: none;
+}
+.award-container::webkit-scrollbar {
+display: none;
+}
+.award-card {
+  min-width: 250px;
+  background: var(--card);
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.award-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.award-card:hover {
+  transform: scale(1.05);
+}
+/* SECTION */
+.section {
+  padding: 50px;
+}
+
+.card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* SKILLS */
+.bar {
+  height: 8px;
+  background: #334155;
+  border-radius: 10px;
+}
+
+.bar-fill {
+  height: 8px;
+  background: #3b82f6;
+  border-radius: 10px;
+}
+
+/* TOGGLE */
+.toggle {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #3b82f6;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+}
+
+.modal iframe {
+  width: 80%;
+  height: 80%;
+  margin: 5% auto;
+  display: block;
+  background: white;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h2>Bhoomika S V</h2>
+</nav>
+
+<!-- SOCIAL -->
+<div class="social">
+  <a href="https://www.linkedin.com/in/bhoomika-vijay-440496185/" target="_blank">💼</a>
+  <a href="https://github.com/bhoomisv" target="_blank">💻</a>
+  <a href="mailto:bhoomisv96@gmail.com">📧</a>
+</div>
+
+<!-- HERO -->
+<div class="hero" data-aos="fade-up">
+  <div>
+    <h1>I’m Bhoomika</h1>
+    <h3 style="color:#3b82f6;">Data Engineer</h3>
+    <p id="typing">Data Engineer</p>
+
+    <a href="#" onclick="openModal()" class="btn">View Resume</a>
+  </div>
+
+  <img src="profile.jpg">
+</div>
+
+<!-- ABOUT -->
+<div class="section" data-aos="fade-up">
+  <h2>About</h2>
+  <div class="card">
+    Data Engineer with 5 years of experience building scalable data pipelines across GCP and AWS. 
+    Skilled in Spark (PySpark & Scala), BigQuery, and Airflow. 
+    Experienced in telecom analytics, real-time streaming, and large-scale data migration projects.
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="section" data-aos="fade-up">
+  <h2>Projects</h2>
+
+  <div class="card">
+    <h3>Hadoop to BigQuery Migration</h3>
+    <p>Migrated Hive & Spark workloads to BigQuery and built validation frameworks ensuring data accuracy.</p>
+  </div>
+
+  <div class="card">
+    <h3>Telecom Forecasting System</h3>
+    <p>Developed Spark Streaming pipelines using Scala for real-time telecom trend prediction.</p>
+  </div>
+
+  <div class="card">
+    <h3>Data Validation Framework</h3>
+    <p>Automated reconciliation process improving data accuracy and reducing manual effort.</p>
+  </div>
+
+</div>
+
+<!-- CERTIFICATIONS -->
+<div class="section" data-aos="fade-up">
+  <h2>Certifications</h2>
+
+  <div class="card">
+    <p>🏆 GCP Associate Cloud Engineer</p>
+    <p>🏆 GCP Professional Data Engineer</p>
+
+    <p>
+      🔗 
+      <a href="https://www.credly.com/users/bhoomika-s-v/badges" target="_blank">
+        View Credly Badges
+      </a>
+    </p>
+
+    <p>
+      🔗 
+      <a href="https://www.credential.net/profile/bhoomikasv923353/wallet" target="_blank">
+        View Google Certifications
+      </a>
+    </p>
+  </div>
+
+</div>
+<!-- AWARDS -->
+<div class="section" data-aos="fade-up">
+  <h2>Awards & Achievements</h2>
+
+  <div class="award-container">
+
+    <div class="award-card">
+      <a href="award1.pdf" target="_blank">
+        <img src="award1.jpg" alt="Award 1">
+      </a>
+    </div>
+
+    <div class="award-card">
+      <a href="award2.pdf" target="_blank">
+        <img src="award2.jpg" alt="Award 2">
+      </a>
+    </div>
+
+    <div class="award-card">
+      <a href="award3.pdf" target="_blank">
+        <img src="award3.jpg" alt="Award 3">
+      </a>
+    </div>
+    <div class="award-card">
+      <a href="award4.pdf" target="_blank">
+        <img src="award4.jpg" alt="Award 4">
+      </a>
+    </div>
+
+    <div class="award-card">
+      <a href="award5.pdf" target="_blank">
+        <img src="award5.jpg" alt="Award 5">
+      </a>
+    </div>
+
+    <div class="award-card">
+      <a href="award6.pdf" target="_blank">
+        <img src="award6.jpg" alt="Award 6">
+      </a>
+    </div>
+
+    <div class="award-card">
+      <a href="award7.pdf" target="_blank">
+        <img src="award7.jpg" alt="Award 7">
+      </a>
+    </div>
+
+    <div class="award-card">
+      <a href="award8.pdf" target="_blank">
+        <img src="award8.jpg" alt="Award 8">
+      </a>
+    </div>
+
+    
+  </div>
+</div>
+<!-- SKILLS -->
+<div class="section" data-aos="fade-up">
+  <h2>Skills</h2>
+
+  Python
+  <div class="bar"><div class="bar-fill" style="width:90%"></div></div>
+
+  SQL
+  <div class="bar"><div class="bar-fill" style="width:90%"></div></div>
+
+  PySpark
+  <div class="bar"><div class="bar-fill" style="width:80%"></div></div>
+
+  Scala
+  <div class="bar"><div class="bar-fill" style="width:70%"></div></div>
+
+</div>
+
+<!-- CONTACT -->
+<div class="section" data-aos="fade-up">
+  <h2>Contact</h2>
+
+  <div class="card">
+    <form action="mailto:bhoomisv96@gmail.com" method="post" enctype="text/plain">
+      <input type="text" placeholder="Name" required><br><br>
+      <input type="email" placeholder="Email" required><br><br>
+      <textarea placeholder="Message"></textarea><br><br>
+      <button class="btn">Send</button>
+    </form>
+  </div>
+</div>
+
+<!-- TOGGLE -->
+<div class="toggle" onclick="toggleMode()">⚙️</div>
+
+<!-- RESUME MODAL -->
+<div class="modal" id="modal" onclick="closeModal()">
+  <iframe src="resume.pdf"></iframe>
+</div>
+
+<!-- JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init();
+
+function toggleMode() {
+  document.body.classList.toggle("light-mode");
+}
+
+function openModal() {
+  document.getElementById("modal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+
+const text = ["Data Engineer", "GCP Specialist", "Spark Developer"];
+let i=0,j=0,current="",del=false;
+
+function type() {
+  if(i<text.length){
+    if(!del && j<=text[i].length){
+      current=text[i].substring(0,j++);
+    } else if(del && j>=0){
+      current=text[i].substring(0,j--);
+    }
+
+    document.getElementById("typing").innerHTML=current;
+
+    if(j==text[i].length) del=true;
+    if(j==0){ del=false; i++; }
+  } else i=0;
+
+  setTimeout(type, del?50:100);
+}
+type();
+</script>
+
+</body>
+</html>
